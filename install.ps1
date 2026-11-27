@@ -19,7 +19,7 @@
   Skips creating a timestamped backup before modifying existing files.
 
 .PARAMETER Workspace
-  Optional path to a project workspace directory. When set, deploys all 37 unified skills
+  Optional path to a project workspace directory. When set, deploys all 38 unified skills
   into <Workspace>\.agents\skills (and any optional bundled plugins if present).
 
 .PARAMETER WorkspaceOnly
@@ -208,7 +208,7 @@ if (-not $WorkspaceOnly) {
   $installedAgents = (Get-ChildItem -Path $TargetAgentsDir -Filter '*.md' -File).Count
   $geminiBytes = (Get-Item $TargetGeminiMd).Length
 
-  if ($installedSkills -lt 37) { throw "Verification failed: expected >= 37 global skills, found $installedSkills" }
+  if ($installedSkills -lt 38) { throw "Verification failed: expected >= 38 global skills, found $installedSkills" }
   if ($installedAgents -lt 11) { throw "Verification failed: expected >= 11 subagents, found $installedAgents" }
   if ($geminiBytes -ge 24000) { throw "Verification failed: GEMINI.md exceeds 24000 bytes ($geminiBytes)" }
 
@@ -219,8 +219,9 @@ if (-not $WorkspaceOnly) {
 
 if (-not [string]::IsNullOrWhiteSpace($Workspace)) {
   $wsSkillCount = (Get-ChildItem -Path (Join-Path $Workspace '.agents\skills') -Directory | Where-Object { Test-Path (Join-Path $_.FullName 'SKILL.md') }).Count
-  if ($wsSkillCount -lt 37) { throw "Workspace verification failed: expected >= 37 skills, found $wsSkillCount" }
+  if ($wsSkillCount -lt 38) { throw "Workspace verification failed: expected >= 38 skills, found $wsSkillCount" }
   Write-Host "Workspace skills         : $wsSkillCount"
 }
 
 Write-Host "Open a new Antigravity conversation to load the updated configuration."
+Write-Host "Optional (for diagram-design PDF/PNG export): pip install playwright && playwright install chromium" -ForegroundColor DarkGray

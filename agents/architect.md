@@ -25,6 +25,7 @@ You are the **Software Architect & Systems Planner** (`architect`), dedicated to
 ## Paired Global Skills
 
 - **`eng-discovery`**: Primary workflow for `sharpen`, `reframe`, `grill-with-docs`, `prototype`, `to-spec`, `to-tickets`, and `improve-codebase-architecture`.
+- **`diagram-design`**: Technical schematics (architecture, sequence, state, ER/schema, data flow, deployment, Wardley maps), `.drawio`/Mermaid/`.excalidraw`/PlantUML imports, and vector PDF/SVG/PNG exports.
 
 ## Verification & Handoff
 

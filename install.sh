@@ -204,7 +204,7 @@ if [[ "$WORKSPACE_ONLY" == false ]]; then
   AGENT_COUNT="$(find "$TARGET_AGENTS_DIR" -maxdepth 1 -name '*.md' | wc -l | tr -d ' ')"
   GEMINI_BYTES="$(wc -c < "$TARGET_GEMINI_MD" | tr -d ' ')"
 
-  [[ "$SKILL_COUNT" -ge 37 ]] || { echo "Error: expected >= 37 global skills, found $SKILL_COUNT" >&2; exit 1; }
+  [[ "$SKILL_COUNT" -ge 38 ]] || { echo "Error: expected >= 38 global skills, found $SKILL_COUNT" >&2; exit 1; }
   [[ "$AGENT_COUNT" -ge 11 ]] || { echo "Error: expected >= 11 subagents, found $AGENT_COUNT" >&2; exit 1; }
   [[ "$GEMINI_BYTES" -lt 24000 ]] || { echo "Error: GEMINI.md exceeds 24000 bytes ($GEMINI_BYTES)" >&2; exit 1; }
 
@@ -215,8 +215,9 @@ fi
 
 if [[ -n "$WORKSPACE" ]]; then
   WS_SKILL_COUNT="$(find "${WORKSPACE}/.agents/skills" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l | tr -d ' ')"
-  [[ "$WS_SKILL_COUNT" -ge 37 ]] || { echo "Error: expected >= 37 workspace skills, found $WS_SKILL_COUNT" >&2; exit 1; }
+  [[ "$WS_SKILL_COUNT" -ge 38 ]] || { echo "Error: expected >= 38 workspace skills, found $WS_SKILL_COUNT" >&2; exit 1; }
   echo "Workspace skills         : ${WS_SKILL_COUNT}"
 fi
 
 echo "Open a new Antigravity conversation to load the updated configuration."
+echo "Optional (for diagram-design PDF/PNG export): pip install playwright && playwright install chromium"

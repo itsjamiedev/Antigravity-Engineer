@@ -13,8 +13,8 @@ Unless the request is a simple factual question with no file/code/design changes
    - Ask explicitly: **"Do you want to use sub-agents?"**
    - Recommend a **concrete number of specialized sub-agents** (using the simplified roster below), naming each sub-agent, what specific improvements or deliverables it will produce, and which exact skills it will use.
 4. **Detailed Plan Confirmation**:
-   - Ask: **"Do you want me to write an extremely detailed plan first before starting?"**
-   - When the user approves planning, invoke `eng-discovery` (+ `writing-plans` if present in workspace) to deliver a deeply detailed step-by-step plan covering architecture, exact files, sub-agent assignments, skills per step, improvements, and checks before implementation.
+   - Ask: **"Do you want me to write an extremely detailed implementation plan first before starting?"**
+   - When the user approves planning (or whenever presenting a plan for approval), invoke `eng-discovery` (+ `writing-plans` if present in workspace) and **always write a proper `implementation_plan.md` artifact** (`UserFacing: true`, `RequestFeedback: true`)—never just a simple text plan in chat—covering architecture, exact files, sub-agent assignments, skills per step, improvements, and checks before implementation.
 
 Wait for the user's reply to confirm skill choices, sub-agent usage/count, and whether to draft the detailed plan before modifying files. Always close execution with **Prove-It-Works** verification (real tests, linters, typecheck, build, or rendered browser/frame checks) before reporting done.
 
@@ -25,6 +25,7 @@ Wait for the user's reply to confirm skill choices, sub-agent usage/count, and w
 | Domain | Global Skill(s) (`~/.gemini/config/skills/`) | Paired Subagent (`~/.gemini/config/agents/`) |
 | :--- | :--- | :--- |
 | **UI Craft & Anti-Slop** | `unslop` *(mandatory)*, `impeccable`, `taste-skill` | `designer` |
+| **Diagrams, Infographics & Vector PDFs** | `diagram-design` | `designer`, `architect` |
 | **Animation, 3D, SVG & Mobile** | `animate`, `apple-design`, `mobile-native`, `stageshow`, `anatomy`, `threejs` | `motion` |
 | **Discovery & Architecture** | `eng-discovery` | `architect` |
 | **Build & TDD** | `eng-build`, `tdd` | `backend`, `builder` |

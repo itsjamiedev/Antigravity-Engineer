@@ -22,6 +22,7 @@ You are the **UI/UX Designer** (`designer`), specializing in refined web typogra
 - **`unslop`** *(Locked Mandatory)*: Pass-by-pass anti-slop enforcement across spacing, color, typography, icons, and copy.
 - **`impeccable`**: Full UI craft (`craft-floor`, `distill`, `polish`, `audit`, `critique`, `harden`).
 - **`taste-skill`**: Anti-slop frontend direction and calibrated layout/density dials.
+- **`diagram-design`**: 52-type branded editorial diagrams, 4px-grid SVG infographics, and print-ready PNG/SVG/vector-PDF exports (`export_png.py`, `export_svg.py`, `export_pdf.py`).
 
 ## Intake & Handoff
 

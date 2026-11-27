@@ -1,17 +1,17 @@
 <div align="center">
 
-<img src="assets/hero-banner.png" alt="Antigravity Engineer — 11 Sub-Agents, 37 Skills, unslop Locked" width="100%" />
+<img src="assets/hero-banner.png" alt="Antigravity Engineer — 11 Sub-Agents, 38 Skills, unslop Locked" width="100%" />
 
 <br />
 
-[![Skills](https://img.shields.io/badge/Skills-37_Unified-F59E0B?style=for-the-badge)](#skills)
+[![Skills](https://img.shields.io/badge/Skills-38_Unified-F59E0B?style=for-the-badge)](#skills)
 [![Sub-Agents](https://img.shields.io/badge/Sub--Agents-11_Roles-1E293B?style=for-the-badge)](#sub-agents)
 [![Plugins](https://img.shields.io/badge/Plugins_Required-0-10B981?style=for-the-badge)](#architecture)
 [![UI Guardrail](https://img.shields.io/badge/UI_Guardrail-unslop_Locked-F59E0B?style=for-the-badge)](#workflow)
 [![OS](https://img.shields.io/badge/OS-Windows_%7C_macOS_%7C_Linux-334155?style=for-the-badge)](#install)
 
 <p>
-  <strong>11 simple sub-agents, 37 standalone skills, and an interactive anti-slop operating system for Antigravity.</strong>
+  <strong>11 simple sub-agents, 38 standalone skills, and an interactive anti-slop operating system for Antigravity.</strong>
 </p>
 
 <p>
@@ -38,7 +38,7 @@
 </div>
 
 **Scope options:**
-- **Global (`~/.gemini/config/`)** — Recommended default. Installs `GEMINI.md`, `11` sub-agents, and `37` skills across every workspace automatically.
+- **Global (`~/.gemini/config/`)** — Recommended default. Installs `GEMINI.md`, `11` sub-agents, and `38` skills across every workspace automatically.
 - **Global + Workspace (`-Workspace` / `--workspace`)** — Installs globally and mirrors `skills/` into `<project>/.agents/skills/`.
 - **Workspace-Only (`-WorkspaceOnly` / `--workspace-only`)** — Deploys `skills/` only into `<project>/.agents/skills/`.
 
@@ -86,12 +86,12 @@ If script execution is blocked, copy manually:
 1. Copy `GEMINI.md` to `~/.gemini/config/GEMINI.md`.
 2. If upgrading from an older version, remove legacy hyphenated files in `~/.gemini/config/agents/`: `software-architect.md`, `backend-systems-engineer.md`, `desktop-app-engineer.md`, `ui-ux-designer.md`, `motion-design-engineer.md`, `deep-debugger.md`, `code-reviewer.md`, `qa-automation-engineer.md`, `security-auditor.md`, `video-production-engineer.md`, `skill-architect.md`.
 3. Copy all `11` `.md` files from `agents/` into `~/.gemini/config/agents/`.
-4. Copy all `37` folders from `skills/` into `~/.gemini/config/skills/` (or `<workspace>/.agents/skills/`).
+4. Copy all `38` folders from `skills/` into `~/.gemini/config/skills/` (or `<workspace>/.agents/skills/`).
 
 **Completion criteria:**
 | Target | Pass Condition |
 | :--- | :--- |
-| `skills/` | `>= 37` directories, each with a `SKILL.md` (`name:` + `description:`) |
+| `skills/` | `>= 38` directories, each with a `SKILL.md` (`name:` + `description:`) |
 | `agents/` | `11` 1-word `.md` profiles; `0` legacy hyphenated filenames |
 | `GEMINI.md` | Present in `~/.gemini/config/`, no YAML frontmatter, `< 24000` bytes |
 | Installer | Exited cleanly with status `0` |
@@ -117,7 +117,7 @@ flowchart LR
   G2 --> G3["3. Propose Sub-Agent Count"]
   G3 --> G4["4. Ask to Plan First"]
   G4 --> U["User Approval"]
-  U -- "Plan" --> PL["eng-discovery / writing-plans"]
+  U -- "Plan" --> PL["eng-discovery -> implementation_plan.md"]
   U -- "Run" --> EX["Sub-Agent Execution"]
   PL --> EX
   EX --> VW["Prove-It-Works Gate"]
@@ -138,7 +138,7 @@ sequenceDiagram
   U-->>C: Confirm skills, sub-agent count & plan option
   opt Detailed Plan Requested
     C->>A: eng-discovery + writing-plans
-    A-->>C: Deep-module spec, ADRs, tracer-bullet slices
+    A-->>C: Deep-module spec, ADRs & implementation_plan.md artifact
   end
   par Visual & Interactive Surface
     C->>D: Enforce unslop + craft-floor + Three.js / motion
@@ -158,7 +158,7 @@ sequenceDiagram
 
 ## Architecture
 
-One 4 KB `GEMINI.md` routes **`11` 1-word sub-agents** across **`37` standalone skills**—no separate plugins required.
+One 4 KB `GEMINI.md` routes **`11` 1-word sub-agents** across **`38` standalone skills**—no separate plugins required.
 
 <div align="center">
   <img src="assets/system-map.png" alt="Architecture map connecting GEMINI.md to all 11 sub-agents and 8 skill domains" width="100%" />
@@ -180,6 +180,7 @@ mindmap
       shadcn
       stitch-design-taste
       brandkit
+      diagram-design - 52 types & PDF
       imagegen-frontend-web
       image-to-code
     Motion, 3D & SVG · motion
@@ -224,10 +225,10 @@ mindmap
 
 | Sub-Agent | Owns | Paired Skills | Verification Contract |
 | :--- | :--- | :--- | :--- |
-| **`architect`** | Specs, DDD, ADRs | `eng-discovery`, `writing-plans`, `prototype` | Contracts & file refs checked against live code |
+| **`architect`** | Specs, DDD, ADRs | `eng-discovery`, `writing-plans`, `prototype`, `diagram-design` | Contracts & file refs checked against live code |
 | **`backend`** | APIs, Postgres, Realtime | `eng-build`, `tdd`, `elysia`, `supabase`, `supabase-postgres-best-practices` | Integration tests, query plans & live endpoints |
 | **`builder`** | Full-stack & desktop slices | `eng-build`, `tdd`, `full-output-enforcement`, `vercel-react-best-practices`, `setup-ts-deep-modules` | Typecheck, lint, TDD suites & IPC isolation |
-| **`designer`** | Visual UI/UX & anti-slop | `unslop` *(locked)*, `impeccable`, `taste-skill`, `ui-ux-pro-max`, `shadcn` | Screenshot inspection & zero slop tells |
+| **`designer`** | Visual UI/UX & anti-slop | `unslop` *(locked)*, `impeccable`, `taste-skill`, `diagram-design`, `ui-ux-pro-max`, `shadcn` | Screenshot inspection, PDF/SVG checks & zero slop tells |
 | **`motion`** | Motion, 3D WebGL & SVGs | `animate`, `anatomy`, `apple-design`, `mobile-native`, `stageshow`, `threejs` | `film.mjs --gate`, `anatomy --audit`, GPU disposal |
 | **`debugger`** | Root-cause diagnostics | `eng-debug` | 1–5s repro loop red -> green + `blast-radius` |
 | **`reviewer`** | Two-axis code & WCAG review | `eng-review` | Evidence-backed Strengths, Suggestions & Blockers |
@@ -240,7 +241,7 @@ mindmap
 <summary><strong>Deep Dive: What Each Sub-Agent Does</strong></summary>
 
 - **`architect`** — Shapes vague prompts into crisp domain models (`GLOSSARY.md`), deep modules with simple seams, ADRs, and tracer-bullet tasks.
-- **`designer`** — Owns visual layout, typography, Tailwind/shadcn craft, and mandatory `unslop` + `impeccable` anti-slop passes; delegates motion, Three.js, and interactive SVG diagrams to `motion`.
+- **`designer`** — Owns visual layout, typography, Tailwind/shadcn craft, `diagram-design` infographics/vector PDFs, and mandatory `unslop` + `impeccable` anti-slop passes; delegates motion, Three.js, and isometric 3D SVG rigs to `motion`.
 - **`motion`** — Handles restrained CSS/WAAPI transitions (`animate`), pointer-driven spring physics (`apple-design`), touch/viewport ergonomics (`mobile-native`), cursor UI demos (`stageshow`), isometric SVG rigs (`anatomy`), and Three.js WebGL scenes (`threejs`).
 - **`backend`** — Implements typed ElysiaJS/Hono routes, Supabase SSR auth, GIN/JSONB indexing, `EXPLAIN (ANALYZE, BUFFERS)` query tuning, and reconnect-safe WebSockets.
 - **`builder`** — Delivers complete vertical feature slices across Next.js/React, modular TypeScript packages, and secure Electron IPC apps with zero placeholders.
@@ -260,13 +261,14 @@ mindmap
 Every skill resides under `skills/<name>/SKILL.md` with progressive disclosure (`references/`, `scripts/`, `kit/`, `examples/`) loaded strictly on demand.
 
 <details open>
-<summary><strong>1. UI Craft & Anti-Slop (9 Skills · <code>designer</code>)</strong></summary>
+<summary><strong>1. UI Craft, Diagrams & Anti-Slop (10 Skills · <code>designer</code>)</strong></summary>
 
 | Skill | Role | Trigger |
 | :--- | :--- | :--- |
 | **`unslop`** *(Locked)* | 9-pass redline cleanup (4px spacing grid, single neutral ramp, accent contrast, copy tightening, zero purple/glow slop) + `snapshot.mjs` | Automatically enforced on **every** UI task |
 | **`impeccable`** | Full UI craft (`craft-floor`, `distill` decluttering, `polish`, `audit`, `critique`, `harden`) | Auto-paired with `unslop` on UI builds/redesigns |
 | **`taste-skill`** | Adjustable layout variance, density, and motion rules for modern product sites | New landing pages & design overhauls |
+| **`diagram-design`** | 52-type 4px-grid editorial diagrams, infographics, `.drawio`/Mermaid/`.excalidraw`/PlantUML imports & vector PDF/PNG/SVG export | Architecture, charts, infographics & PDFs |
 | **`ui-ux-pro-max`** | Searchable design DB (`84` styles, `192` palettes, `74` font pairings, `25` charts, `22` stacks) | Choosing typography, palettes & charts |
 | **`shadcn`** | CLI workflows, `components.json` presets & shadcn/ui debugging | Adding or fixing shadcn/ui components |
 | **`stitch-design-taste`** | Semantic `DESIGN.md` design-token and layout generator | Creating/updating project `DESIGN.md` specs |
@@ -372,12 +374,12 @@ Antigravity-Engineer/
 ├── README.md            # Repository guide
 ├── assets/              # Official-logo hero banner, architecture map & GIF demos
 ├── agents/              # 11 simplified 1-word sub-agent profiles
-└── skills/              # 37 standalone progressive-disclosure skills
+└── skills/              # 38 standalone progressive-disclosure skills
 ```
 
 **Optional CLI Tools** *(all skills are pure Markdown unless executing helper scripts)*:
 - **Node.js 20.10+**: Required for `anatomy` (`kit/` builds & `--audit`), `security-audit` JSON validators, and `remotion-best-practices`.
-- **Playwright + Chromium & `ffmpeg`**: Required for `unslop` (`snapshot.mjs`), `stageshow` (`film.mjs --gate`), and `anatomy` (`lines.mjs`).
+- **Python 3 + Playwright (`pip install playwright && playwright install chromium`) & `ffmpeg`**: Required for `diagram-design` (`export_pdf.py`, `export_png.py`), `unslop` (`snapshot.mjs`), `stageshow` (`film.mjs --gate`), and `anatomy` (`lines.mjs`).
 - **`impeccable` CLI**: Optional (`npx impeccable`) for local doctor checks.
 
 <details>
